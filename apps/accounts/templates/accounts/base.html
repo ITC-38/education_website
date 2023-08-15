@@ -1,0 +1,44 @@
+<!doctype html>{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0,
+          maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %} {{ title }} {% endblock %}</title>
+    {% block head %} {% endblock head %}
+    <style>
+        .alert {
+            width: 100%;
+            padding: 20px 40px;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .alert-error {
+            background-color: orangered;
+        }
+
+        .alert-success {
+            background-color: mediumseagreen;
+        }
+
+        .alert-info {
+            background-color: dodgerblue;
+        }
+    </style>
+</head>
+<body>
+<div class="msgs">
+    {% include 'accounts/include/messages.html' %}
+</div>
+{% block body %}
+{% endblock body %}
+<script src="{% static 'accounts/js/messages.js' %}"></script>
+</body>
+</html>
