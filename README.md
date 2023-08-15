@@ -1,15 +1,15 @@
-# Django Basic Project config
+# Education Website
 
 
 ## Installation
 
 * Clone repository
-```commandline
-git clone https://github.com/SaD-Pr0gEr/django_basic_project.git
+```shell
+git clone https://github.com/ITC-38/education_website.git
 ```
 
 * Install dependencies
-```commandline
+```shell
 # prod
 pipenv install
 
@@ -19,6 +19,7 @@ pipenv install --dev
 
 ## Run
 * Run project
-```commandline
+```shell
+make migrations settings=dev
 make run settings=dev
 ```
