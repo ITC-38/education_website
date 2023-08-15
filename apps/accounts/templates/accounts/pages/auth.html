@@ -1,0 +1,79 @@
+{% extends 'accounts/base.html' %}
+{% load static %}
+{% block title %} {{ title }} {% endblock title %}
+{% block head %}
+    <link rel="stylesheet" href="{% static 'accounts/css/auth.css' %}">
+{% endblock head %}
+{% block body %}
+    <div class="container">
+        <input type="checkbox" id="flip">
+        <div class="cover">
+            <div class="front">
+                <img src="{% static 'accounts/img/frontImg.jpg' %}" alt="">
+                <div class="text">
+                    <span class="text-1">Every new friend is a <br> new adventure</span>
+                    <span class="text-2">Let's get connected</span>
+                </div>
+            </div>
+            <div class="back">
+                <img class="backImg" src="{% static 'accounts/img/backImg.jpg' %}" alt="">
+                <div class="text">
+                    <span class="text-1">Complete miles of journey <br> with one step</span>
+                    <span class="text-2">Let's get started</span>
+                </div>
+            </div>
+        </div>
+        <div class="forms">
+            <div class="form-content">
+                <div class="login-form">
+                    <div class="title">Login</div>
+                    <form action="{% url 'accounts:login' %}" method="post">
+                        {% csrf_token %}
+                        <div class="input-boxes">
+                            <div class="input-box">
+                                {{ login_form.email }}
+                            </div>
+                            <div class="input-box">
+                                {{ login_form.password }}
+                            </div>
+                            <div class="text" style="display: none"><a href="#">Forgot password?</a>
+                            </div>
+                            <div class="button input-box">
+                                <input type="submit" value="Sumbit">
+                            </div>
+                            <div class="text sign-up-text">Don't have an
+                                account? <label for="flip">Sigup now</label>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="signup-form">
+                    <div class="title">Signup</div>
+                    <form action="{% url 'accounts:signup' %}" method="post">
+                        {% csrf_token %}
+                        <div class="input-boxes">
+                            <div class="input-box">
+                                {{ signup_form.email }}
+                            </div>
+                            <div class="input-box">
+                                {{ signup_form.full_name }}
+                            </div>
+                            <div class="input-box">
+                                {{ signup_form.password }}
+                            </div>
+                            <div class="input-box">
+                                {{ signup_form.password2 }}
+                            </div>
+                            <div class="button input-box">
+                                <input type="submit" value="Sumbit">
+                            </div>
+                            <div class="text sign-up-text">Already have an
+                                account? <label for="flip">Login now</label>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock body %}

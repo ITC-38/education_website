@@ -1,0 +1,10 @@
+{% if messages %}{% load static %}
+    {% for message in messages %}
+        <div {% if message.tags %}
+                class="alert alert-{{ message.tags }}" {% endif %}>
+            <h2> {{ message }} </h2>
+            <img src="{% static 'accounts/img/x.png' %}" class="cancel-alert"
+                 alt="" style="width: 40px; height: 40px">
+        </div>
+    {% endfor %}
+{% endif %}
