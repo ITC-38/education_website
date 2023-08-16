@@ -8,3 +8,4 @@ class NewsAdmin(ModelAdmin):
     list_display = ('id', 'name', 'created_date',)
     list_display_links = ('name',)
     readonly_fields = ('created_date',)
+    search_fields = ('name',)
