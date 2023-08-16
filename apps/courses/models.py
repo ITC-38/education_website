@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.translation import gettext_lazy as _
 
 
 class Languages(models.Model):
@@ -14,8 +15,8 @@ class Languages(models.Model):
     native = models.BooleanField(default=True)
 
     class Meta:
-        verbose_name = 'Language'
-        verbose_name_plural = 'Languages'
+        verbose_name = _('Language')
+        verbose_name_plural = _('Languages')
 
 
 class ObjectiveFeatures(models.Model):
@@ -25,8 +26,8 @@ class ObjectiveFeatures(models.Model):
     )
 
     class Meta:
-        verbose_name = 'Objective feature'
-        verbose_name_plural = 'Objective features'
+        verbose_name = _('Objective Feature')
+        verbose_name_plural = _('Objective Features')
 
 
 class Levels(models.Model):
@@ -40,5 +41,5 @@ class Levels(models.Model):
     )
 
     class Meta:
-        verbose_name = 'Level'
-        verbose_name_plural = 'Levels'
+        verbose_name = _('Level')
+        verbose_name_plural = _('Levels')
