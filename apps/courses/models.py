@@ -7,11 +7,9 @@ class Languages(models.Model):
         max_length=64,
         unique=True
     )
-
     slug = models.SlugField(
         unique=True
     )
-
     native = models.BooleanField(default=True)
 
     class Meta:
@@ -35,7 +33,6 @@ class Levels(models.Model):
         max_length=64,
         unique=True
     )
-
     slug = models.SlugField(
         unique=True
     )
@@ -51,7 +48,6 @@ class Category(models.Model):
         max_length=64,
         unique=True
     )
-
     slug = models.SlugField(
         'URL',
         unique=True
@@ -68,12 +64,10 @@ class InnerCategory(models.Model):
         max_length=64,
         unique=True
     )
-
     slug = models.SlugField(
         'URL',
         unique=True
     )
-
     category = models.ForeignKey(
         Category,
         on_delete=models.CASCADE,
@@ -91,7 +85,6 @@ class Topics(models.Model):
         max_length=64,
         unique=True
     )
-
     slug = models.SlugField(
         'URL',
         unique=True
