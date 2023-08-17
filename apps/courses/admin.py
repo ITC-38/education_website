@@ -1,6 +1,10 @@
 from django.contrib import admin
 from django.contrib.admin import ModelAdmin
-from .models import Languages, ObjectiveFeatures, Levels, Category, InnerCategory, Topics, Requirement
+
+from .models import (
+    Category, InnerCategory, Languages, Levels, ObjectiveFeatures, Requirement,
+    Topics,
+)
 
 
 @admin.register(Languages)

@@ -3,8 +3,8 @@ from django.contrib.admin import ModelAdmin, TabularInline
 from django.contrib.auth.models import Group
 from django.http import HttpRequest
 
-from .forms import CustomUserCreationForm, CustomUserChangeForm
-from .models import Users, UserProfile, Professions
+from .forms import CustomUserChangeForm, CustomUserCreationForm
+from .models import Professions, UserProfile, Users
 
 
 class UserProfileInline(TabularInline):

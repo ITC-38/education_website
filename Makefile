@@ -6,3 +6,5 @@ static:
 	python manage.py collectstatic --settings=config.settings.$(settings)
 admin:
 	python manage.py createsuperuser --settings=config.settings.$(settings)
+lint:
+	isort . --settings-path=.isort.cfg
