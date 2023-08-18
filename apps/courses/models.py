@@ -21,6 +21,12 @@ class Languages(models.Model):
 
     native = models.BooleanField(default=True)
 
+    def __str__(self):
+        return self.name
+
+    def __repr__(self):
+        return self.name
+
     class Meta:
         verbose_name = _('Language')
         verbose_name_plural = _('Languages')
@@ -31,6 +37,12 @@ class ObjectiveFeatures(models.Model):
         max_length=64,
         unique=True
     )
+
+    def __str__(self):
+        return self.name
+
+    def __repr__(self):
+        return self.name
 
     class Meta:
         verbose_name = _('Objective Feature')
@@ -46,6 +58,12 @@ class Levels(models.Model):
     slug = models.SlugField(
         unique=True
     )
+
+    def __str__(self):
+        return self.name
+
+    def __repr__(self):
+        return self.name
 
     class Meta:
         verbose_name = _('Level')
@@ -63,6 +81,12 @@ class Category(models.Model):
         'URL',
         unique=True
     )
+
+    def __str__(self):
+        return self.name
+
+    def __repr__(self):
+        return self.name
 
     class Meta:
         verbose_name = _('Category')
@@ -87,6 +111,12 @@ class InnerCategory(models.Model):
         related_name='inner_categories'
     )
 
+    def __str__(self):
+        return self.name
+
+    def __repr__(self):
+        return self.name
+
     class Meta:
         verbose_name = _('Inner category')
         verbose_name_plural = _('Inner categories')
@@ -98,6 +128,12 @@ class Requirement(models.Model):
         max_length=64,
         unique=True
     )
+
+    def __str__(self):
+        return self.name
+
+    def __repr__(self):
+        return self.name
 
     class Meta:
         verbose_name = _('Requirement')
@@ -158,6 +194,12 @@ class Courses(models.Model):
         upload_to=user_course_photo_upload_path
     )
 
+    def __str__(self):
+        return self.name
+
+    def __repr__(self):
+        return self.name
+
     class Meta:
         verbose_name = _('Course')
         verbose_name_plural = _('Courses')
@@ -171,6 +213,12 @@ class CourseModules(models.Model):
         related_name='course_modules',
         on_delete=models.CASCADE
     )
+
+    def __str__(self):
+        return self.name
+
+    def __repr__(self):
+        return self.name
 
     class Meta:
         verbose_name = _('Course module')
@@ -188,6 +236,12 @@ class ModuleLessons(models.Model):
         _('Name'), max_length=128
     )
     video = models.FileField(upload_to=user_courses_upload_path)
+
+    def __str__(self):
+        return self.name
+
+    def __repr__(self):
+        return self.name
 
     class Meta:
         verbose_name = _('Module lesson')

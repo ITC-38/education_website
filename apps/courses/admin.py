@@ -12,6 +12,7 @@ class LanguagesAdmin(ModelAdmin):
     list_display = ('id', 'name', 'slug',)
     list_display_links = ('name',)
     search_fields = ('name',)
+    list_filter = ('native',)
 
 
 @admin.register(ObjectiveFeatures)

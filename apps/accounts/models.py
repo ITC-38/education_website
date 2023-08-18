@@ -41,6 +41,12 @@ class Users(AbstractBaseUser, PermissionsMixin):
 
     objects = UserManager()
 
+    def __str__(self):
+        return self.email
+
+    def __repr__(self):
+        return self.email
+
     class Meta:
         verbose_name = _('User')
         verbose_name_plural = _('Users')
@@ -57,6 +63,12 @@ class Professions(models.Model):
         'URL',
         unique=True
     )
+
+    def __str__(self):
+        return self.name
+
+    def __repr__(self):
+        return self.name
 
     class Meta:
         verbose_name = _('Profession')
@@ -79,3 +91,9 @@ class UserProfile(models.Model):
         related_name='profession_users', on_delete=models.SET_NULL,
         null=True, blank=True
     )
+
+    def __str__(self):
+        return f'{self.user_id}:{self.avatar.url}'
+
+    def __repr__(self):
+        return f'{self.user_id}:{self.avatar.url}'
