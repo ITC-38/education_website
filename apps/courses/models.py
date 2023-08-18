@@ -11,13 +11,18 @@ from apps.courses.validator import validate_discount_percent
 
 class Languages(models.Model):
     name = models.CharField(
+        _('Language name'),
         max_length=64,
         unique=True
     )
     slug = models.SlugField(
+        _('URL'),
         unique=True
     )
-    native = models.BooleanField(default=True)
+    native = models.BooleanField(
+        _('Native'),
+        default=True
+    )
 
     def __str__(self):
         return self.name
@@ -32,6 +37,7 @@ class Languages(models.Model):
 
 class ObjectiveFeatures(models.Model):
     name = models.CharField(
+        _('Objective Feature name'),
         max_length=64,
         unique=True
     )
@@ -49,10 +55,12 @@ class ObjectiveFeatures(models.Model):
 
 class Levels(models.Model):
     name = models.CharField(
+        _('Level name'),
         max_length=64,
         unique=True
     )
     slug = models.SlugField(
+        _('URL'),
         unique=True
     )
 
@@ -96,11 +104,12 @@ class InnerCategory(models.Model):
         unique=True
     )
     slug = models.SlugField(
-        'URL',
+        _('URL'),
         unique=True
     )
     category = models.ForeignKey(
         Category,
+        verbose_name=_('Category'),
         on_delete=models.CASCADE,
         related_name='inner_categories'
     )
