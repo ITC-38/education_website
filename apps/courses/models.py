@@ -82,7 +82,7 @@ class Category(models.Model):
         unique=True
     )
     slug = models.SlugField(
-        'URL',
+        _('URL'),
         unique=True
     )
 
