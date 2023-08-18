@@ -122,10 +122,6 @@ class Requirement(models.Model):
         max_length=64,
         unique=True
     )
-    slug = models.SlugField(
-        'URL',
-        unique=True
-    )
 
     def __str__(self):
         return self.name
