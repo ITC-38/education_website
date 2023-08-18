@@ -1,5 +1,12 @@
+from django.conf import settings
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+
+from apps.courses.utils import (
+    user_course_photo_upload_path,
+    user_courses_upload_path
+)
+from apps.courses.validator import validate_discount_percent
 
 
 class Languages(models.Model):
@@ -85,23 +92,6 @@ class InnerCategory(models.Model):
         verbose_name_plural = _('Inner categories')
 
 
-class Topics(models.Model):
-    name = models.CharField(
-        _('Topic name'),
-        max_length=64,
-        unique=True
-    )
-
-    slug = models.SlugField(
-        'URL',
-        unique=True
-    )
-
-    class Meta:
-        verbose_name = _('Topic')
-        verbose_name_plural = _('Topics')
-
-
 class Requirement(models.Model):
     name = models.CharField(
         _('Requirement name'),
@@ -112,3 +102,93 @@ class Requirement(models.Model):
     class Meta:
         verbose_name = _('Requirement')
         verbose_name_plural = _('Requirements')
+
+
+class Courses(models.Model):
+    name = models.CharField(_('Name'), max_length=128)
+    author = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        verbose_name=_('Author'),
+        related_name='author_courses',
+        on_delete=models.CASCADE
+    )
+    price = models.DecimalField(
+        _('Price'),
+        max_digits=6,
+        decimal_places=2
+    )
+    discount = models.IntegerField(
+        _('Discount'), validators=[validate_discount_percent]
+    )
+    description = models.TextField(_('Description'))
+    category = models.ForeignKey(
+        InnerCategory,
+        verbose_name=_('Category'),
+        related_name='category_courses',
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True
+    )
+    level = models.ForeignKey(
+        Levels,
+        verbose_name=_('Level'),
+        related_name='level_courses',
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True
+    )
+    language = models.ForeignKey(
+        Languages,
+        verbose_name=_('Language'),
+        related_name='language_courses',
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True
+    )
+    programming_language = models.ForeignKey(
+        Languages,
+        verbose_name=_('programming language'),
+        related_name='p_language_courses',
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True
+    )
+    preview_url = models.ImageField(
+        _('Preview'),
+        upload_to=user_course_photo_upload_path
+    )
+
+    class Meta:
+        verbose_name = _('Course')
+        verbose_name_plural = _('Courses')
+
+
+class CourseModules(models.Model):
+    name = models.CharField(_('Name'), max_length=128)
+    course = models.ForeignKey(
+        Courses,
+        verbose_name=_('Course'),
+        related_name='course_modules',
+        on_delete=models.CASCADE
+    )
+
+    class Meta:
+        verbose_name = _('Course module')
+        verbose_name_plural = _('Courses modules')
+
+
+class ModuleLessons(models.Model):
+    module = models.ForeignKey(
+        CourseModules,
+        verbose_name=_('Module'),
+        related_name='module_lessons',
+        on_delete=models.CASCADE
+    )
+    name = models.CharField(
+        _('Name'), max_length=128
+    )
+    video = models.FileField(upload_to=user_courses_upload_path)
+
+    class Meta:
+        verbose_name = _('Module lesson')
+        verbose_name_plural = _('Module lessons')
