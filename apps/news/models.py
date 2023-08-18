@@ -6,10 +6,10 @@ class News(models.Model):
     name = models.CharField(max_length=200)
     description = models.TextField(blank=True)
     created_date = models.DateTimeField(auto_now_add=True)
-    preview_url = models.URLField(null=True, blank=True)
+    preview = models.ImageField(upload_to='images/news/previews')
 
     class Meta:
-        ordering = ['-created']
+        ordering = ['-created_date']
         verbose_name = _('News')
         verbose_name_plural = _('News')
 
