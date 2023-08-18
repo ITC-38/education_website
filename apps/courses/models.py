@@ -14,11 +14,9 @@ class Languages(models.Model):
         max_length=64,
         unique=True
     )
-
     slug = models.SlugField(
         unique=True
     )
-
     native = models.BooleanField(default=True)
 
     def __str__(self):
@@ -54,7 +52,6 @@ class Levels(models.Model):
         max_length=64,
         unique=True
     )
-
     slug = models.SlugField(
         unique=True
     )
@@ -76,7 +73,6 @@ class Category(models.Model):
         max_length=64,
         unique=True
     )
-
     slug = models.SlugField(
         'URL',
         unique=True
@@ -99,12 +95,10 @@ class InnerCategory(models.Model):
         max_length=64,
         unique=True
     )
-
     slug = models.SlugField(
         'URL',
         unique=True
     )
-
     category = models.ForeignKey(
         Category,
         on_delete=models.CASCADE,
@@ -126,6 +120,10 @@ class Requirement(models.Model):
     name = models.CharField(
         _('Requirement name'),
         max_length=64,
+        unique=True
+    )
+    slug = models.SlugField(
+        'URL',
         unique=True
     )
 
