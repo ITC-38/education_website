@@ -1,12 +1,12 @@
 from django.contrib import messages
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import redirect, render
 from django.views import View
 
 from . import forms as acc_forms
 from .models import Users
-from .utils import logout_required_obj
+from .utils import logout_required_obj, login_required_obj
 
 
 class AuthPage(View):
@@ -67,4 +67,13 @@ class SignupView(View):
             request,
             'Вы успешно зарегистрировались, теперь войдите в систему'
         )
+        return redirect('accounts:auth_page')
+
+
+class LogoutView(View):
+
+    @login_required_obj
+    def get(self, request: HttpRequest) -> HttpResponse:
+        logout(request)
+        messages.success(request, 'Вы вышли с аккаунта')
         return redirect('accounts:auth_page')
