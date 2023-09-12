@@ -1,0 +1,17 @@
+{% extends 'global/base.html' %}{% load static %}
+{% block title %} {{ title }} {% endblock title %}
+{% block head %}
+    <link rel="stylesheet" href="{% static 'global/css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'courses/css/home.css' %}">
+{% endblock head %}
+{% block body %}
+    {% include 'global/include/header.html' %}
+    {% include 'courses/include/banner.html' %}
+    <main class="main">
+        {% include 'courses/include/trends.html' %}
+        {% include 'courses/include/categories.html' %}
+        {% include 'courses/include/statistics.html' %}
+        {% include 'courses/include/blog.html' %}
+    </main>
+    {% include 'global/include/footer.html' %}
+{% endblock body %}

@@ -42,7 +42,7 @@ class LoginView(View):
             return redirect('accounts:auth_page')
         login(request, user)
         messages.success(request, 'Вы успешно вошли на свой аккаунт')
-        return redirect('accounts:auth_page')
+        return redirect('courses:home')
 
 
 class SignupView(View):
@@ -76,4 +76,4 @@ class LogoutView(View):
     def get(self, request: HttpRequest) -> HttpResponse:
         logout(request)
         messages.success(request, 'Вы вышли с аккаунта')
-        return redirect('accounts:auth_page')
+        return redirect('courses:home')

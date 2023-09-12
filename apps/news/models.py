@@ -14,7 +14,7 @@ class News(models.Model):
     )
     preview = models.ImageField(
         _("Preview"),
-        upload_to='images/news/previews'
+        upload_to='photos/news/previews'
     )
 
     def __str__(self):

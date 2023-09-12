@@ -143,3 +143,4 @@ media/
 *.rdb
 *.db
 todo.py
+frontend_dist/

@@ -1,0 +1,18 @@
+<section class="categories-section">{% load static %}
+    <h2>Categories</h2>
+    <div class="categories">
+        {% for category in categories %}
+            <div class="category-card smooth-scale">
+                <img src="
+                    {% if not category.preview %}
+                        {% static 'global/img/default_photo_bg.png' %}
+                    {% else %}
+                        {{ category.preview.url }}
+                    {% endif %}
+                    "
+                     alt="categoty photo">
+                <p class="category-name">{{ category.name }}</p>
+            </div>
+        {% endfor %}
+    </div>
+</section>

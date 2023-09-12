@@ -1,0 +1,171 @@
+{% load static %}
+<section class="trends">
+    <h2>Trending courses</h2>
+    <div class="course-categories">
+        {% for category in categories %}
+{#            category-btn-active #}
+            <a href="?category={{ category.slug }}"
+               class="button {% if category.slug == active_category_slug %}
+               category-btn-active {% endif %}">
+                {{ category.name }}
+            </a>
+        {% endfor %}
+    </div>
+    <div class="courses">
+        <div class="course-card smooth-scale">
+            <div class="card-preview">
+                <img src="{% static 'global/img/default_photo_bg.png' %}"
+                     alt="">
+                <p class="button">UI/UX design</p>
+            </div>
+            <div class="card-title">
+                <p class="course-name">Course namedsadasdasdasdsadsadas
+                    dsadsadsa</p>
+                <p class="course-author">A.S. Pushkin</p>
+                <div class="stars">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <span>(2000)</span>
+                </div>
+                <span class="price-inactive">$500</span>
+                <span class="course-price">$500</span>
+            </div>
+        </div>
+        <div class="course-card smooth-scale">
+            <div class="card-preview">
+                <img src="{% static 'global/img/default_photo_bg.png' %}"
+                     alt="">
+                <p class="button">UI/UX design</p>
+            </div>
+            <div class="card-title">
+                <p class="course-name">Course namedsadasdasdasdsadsadas
+                    dsadsadsa</p>
+                <p class="course-author">A.S. Pushkin</p>
+                <div class="stars">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <span>(2000)</span>
+                </div>
+                <span class="price-inactive">$500</span>
+                <span class="course-price">$500</span>
+            </div>
+        </div>
+        <div class="course-card smooth-scale">
+            <div class="card-preview">
+                <img src="{% static 'global/img/default_photo_bg.png' %}"
+                     alt="">
+                <p class="button">UI/UX design</p>
+            </div>
+            <div class="card-title">
+                <p class="course-name">Course namedsadasdasdasdsadsadas
+                    dsadsadsa</p>
+                <p class="course-author">A.S. Pushkin</p>
+                <div class="stars">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <span>(2000)</span>
+                </div>
+                <span class="price-inactive">$500</span>
+                <span class="course-price">$500</span>
+            </div>
+        </div>
+        <div class="course-card smooth-scale">
+            <div class="card-preview">
+                <img src="{% static 'global/img/default_photo_bg.png' %}"
+                     alt="">
+                <p class="button">UI/UX design</p>
+            </div>
+            <div class="card-title">
+                <p class="course-name">Course namedsadasdasdasdsadsadas
+                    dsadsadsa</p>
+                <p class="course-author">A.S. Pushkin</p>
+                <div class="stars">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <span>(2000)</span>
+                </div>
+                <span class="price-inactive">$500</span>
+                <span class="course-price">$500</span>
+            </div>
+        </div>
+        <div class="course-card smooth-scale">
+            <div class="card-preview">
+                <img src="{% static 'global/img/default_photo_bg.png' %}"
+                     alt="">
+                <p class="button">UI/UX design</p>
+            </div>
+            <div class="card-title">
+                <p class="course-name">Course namedsadasdasdasdsadsadas
+                    dsadsadsa</p>
+                <p class="course-author">A.S. Pushkin</p>
+                <div class="stars">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <span>(2000)</span>
+                </div>
+                <span class="price-inactive">$500</span>
+                <span class="course-price">$500</span>
+            </div>
+        </div>
+        <div class="course-card smooth-scale">
+            <div class="card-preview">
+                <img src="{% static 'global/img/default_photo_bg.png' %}"
+                     alt="">
+                <p class="button">UI/UX design</p>
+            </div>
+            <div class="card-title">
+                <p class="course-name">Course namedsadasdasdasdsadsadas
+                    dsadsadsa</p>
+                <p class="course-author">A.S. Pushkin</p>
+                <div class="stars">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <span>(2000)</span>
+                </div>
+                <span class="price-inactive">$500</span>
+                <span class="course-price">$500</span>
+            </div>
+        </div>
+        <div class="course-card smooth-scale">
+            <div class="card-preview">
+                <img src="{% static 'global/img/default_photo_bg.png' %}"
+                     alt="">
+                <p class="button">UI/UX design</p>
+            </div>
+            <div class="card-title">
+                <p class="course-name">Course namedsadasdasdasdsadsadas
+                    dsadsadsa</p>
+                <p class="course-author">A.S. Pushkin</p>
+                <div class="stars">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <span>(2000)</span>
+                </div>
+                <span class="price-inactive">$500</span>
+                <span class="course-price">$500</span>
+            </div>
+        </div>
+    </div>
+    <p class="category-btn-active more-courses">More Courses</p>
+</section>

@@ -113,6 +113,11 @@ class InnerCategory(models.Model):
         on_delete=models.CASCADE,
         related_name='inner_categories'
     )
+    preview = models.ImageField(
+        upload_to='photos/inner_categories',
+        blank=True,
+        null=True
+    )
 
     def __str__(self):
         return self.name

@@ -1,7 +1,7 @@
 from pathlib import Path
 
+from django.utils.translation import gettext_lazy as _
 from dotenv import load_dotenv
-
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
@@ -68,7 +68,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-LANGUAGE_CODE = 'ru'
+LANGUAGE_CODE = 'en'
 
 TIME_ZONE = 'UTC'
 
@@ -92,3 +92,9 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 AUTH_USER_MODEL = 'accounts.Users'
+
+JAZZMIN_SETTINGS = {
+    'topmenu_links': [
+        {'name': _('Main Page'), 'url': 'courses:home'},
+    ],
+}

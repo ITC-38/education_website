@@ -1,0 +1,24 @@
+<header class="header">{% load static %}
+    <div>
+        <a href="{% url 'courses:home' %}">
+            <img src="{% static 'global/img/Logo.svg' %}" alt="site logo">
+        </a>
+    </div>
+    <div class="search-block">
+        <input class="search" type="search" placeholder="Поиск...">
+        <i class="fa fa-magnifying-glass"></i>
+    </div>
+    <p>Категории</p>
+    <p>Стать ментором</p>
+    <div class="auth">
+        {% if request.user.is_anonymous %}
+            <a href="{% url 'accounts:auth_page' %}" class="login">Вход</a>
+            <a href="{% url 'accounts:auth_page' %}" class="signup">Регистрация</a>
+        {% else %}
+            {% if request.user.is_superuser %}
+                <a class="login" href="{% url 'admin:index' %}">Админ панель</a>
+            {% endif %}
+            <a href="{% url 'accounts:logout' %}" class="signup">Выйти</a>
+        {% endif %}
+    </div>
+</header>
