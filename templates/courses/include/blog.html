@@ -9,7 +9,7 @@
                 <p class="post-time">{{ new.created_date|date:"d N Y H:i" }}</p>
                 <p class="post-name">{{ new.name }}</p>
                 <p class="post-description">{{ new.description|truncatechars:"75" }}</p>
-                <p>Read More</p>
+                <a href="{% url 'news:home' %}#{{ new.pk }}">Read More</a>
             </div>
         {% endfor %}
     </div>

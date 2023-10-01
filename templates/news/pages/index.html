@@ -1,0 +1,34 @@
+{% extends 'global/base.html' %}{% load static %}
+{% block title %} {{ title }} {% endblock title %}
+{% block head %}
+    <link rel="stylesheet" href="{% static 'global/css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'news/css/news.css' %}">
+{% endblock head %}
+{% block body %}
+    {% include 'global/include/header.html' %}
+    <main class="main">
+        <div class="sitemap">
+            <span>Home</span>
+            <span class="next"><i class="fa-solid fa-chevron-right"></i></span>
+            <span class="sitemap-active"><a href="{% url 'news:home' %}">News</a></span>
+        </div>
+        <h1>Latest Blog</h1>
+        <div class="news">
+            {% for new in news %}
+                <div class="news-card" id="{{ new.pk }}">
+                    <div class="preview">
+                        <img src="{{ new.preview.url }}" alt="news preview">
+                    </div>
+                    <div class="news-data">
+                        <h2 class="news-header">{{ new.name }}</h2>
+                        <p class="news-time">{{ new.created_date }}</p>
+                        <p class="news-title">
+                            {{ new.description }}
+                        </p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </main>
+    {% include 'global/include/footer.html' %}
+{% endblock body %}

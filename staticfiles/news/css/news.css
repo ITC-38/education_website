@@ -1,0 +1,54 @@
+.main {
+    margin-bottom: 100px;
+}
+
+.news .news-card {
+    margin-bottom: 50px;
+}
+
+.sitemap {
+    margin-bottom: 65px;
+}
+
+.main h1 {
+    margin-bottom: 120px;
+    font-size: 64px;
+    color: #021934;
+}
+
+.news-card {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.news-card .preview,
+.news-card .news-data {
+    width: 48%;
+}
+
+.news-card .preview img {
+    width: 100%;
+    border-radius: 20px;
+}
+
+.news-data .news-header {
+    font-size: 32px;
+    color: #021934;
+    font-weight: bold;
+}
+
+.news-data h2,
+.news-data p {
+    margin-bottom: 20px;
+}
+
+.news-time,
+.news-title {
+    color: #808080;
+}
+
+.news-title {
+    margin-bottom: 80px !important;
+    font-size: 18px;
+}

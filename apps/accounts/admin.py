@@ -21,7 +21,7 @@ class CustomUserAdmin(ModelAdmin):
     add_form = CustomUserCreationForm
     form = CustomUserChangeForm
     list_display = ('email', 'is_superuser', 'is_active',)
-    list_filter = ('email', 'is_superuser', 'is_active',)
+    list_filter = ('is_superuser', 'is_active',)
     search_fields = ('email', 'full_name')
     ordering = ('email',)
     readonly_fields = ('password', 'date_joined', 'last_login')
