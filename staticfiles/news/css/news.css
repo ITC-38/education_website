@@ -49,6 +49,7 @@
 }
 
 .news-title {
+    word-wrap: break-word;
     margin-bottom: 80px !important;
     font-size: 18px;
 }

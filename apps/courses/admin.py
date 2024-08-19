@@ -3,7 +3,7 @@ from django.contrib.admin import ModelAdmin
 
 from .models import (
     Category, InnerCategory, Languages,
-    Levels, ObjectiveFeatures, Requirement,
+    Levels, ObjectiveFeatures, Requirement, Courses,
 )
 
 
@@ -46,5 +46,12 @@ class InnerCategoryAdmin(ModelAdmin):
 @admin.register(Requirement)
 class RequirementAdmin(ModelAdmin):
     list_display = ('id', 'name',)
+    list_display_links = ('name',)
+    search_fields = ('name',)
+
+
+@admin.register(Courses)
+class CoursesAdmin(admin.ModelAdmin):
+    list_display = ('name', 'price', 'discount', 'programming_language')
     list_display_links = ('name',)
     search_fields = ('name',)

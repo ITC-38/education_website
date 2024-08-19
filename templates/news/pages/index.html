@@ -8,7 +8,7 @@
     {% include 'global/include/header.html' %}
     <main class="main">
         <div class="sitemap">
-            <span>Home</span>
+            <span><a href="{% url 'courses:home' %}">Home</a></span>
             <span class="next"><i class="fa-solid fa-chevron-right"></i></span>
             <span class="sitemap-active"><a href="{% url 'news:home' %}">News</a></span>
         </div>

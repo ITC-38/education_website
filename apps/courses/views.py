@@ -13,6 +13,12 @@ class HomeView(View):
 
     def get(self, request: HttpRequest) -> HttpResponse:
         category_slug = request.GET.get('category')
+        if category_slug:
+            trending_courses = Courses.objects.filter(
+                category__slug=category_slug
+            ).select_related('category', 'author').all()
+        else:
+            trending_courses = Courses.objects.select_related('category', 'author').all()
         courses_count = Courses.objects.count()
         users_count = Users.objects.count()
         return render(
@@ -24,6 +30,7 @@ class HomeView(View):
                 'courses_count': courses_count,
                 'users_count': users_count,
                 'news': News.objects.all(),
-                'active_category_slug': category_slug
+                'active_category_slug': category_slug,
+                'trending_courses': trending_courses
             }
         )

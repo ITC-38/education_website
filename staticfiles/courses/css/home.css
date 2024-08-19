@@ -172,4 +172,5 @@ main section h2 {
 
 .post-card .post-description {
     color: #808080;
+    word-wrap: break-word;
 }

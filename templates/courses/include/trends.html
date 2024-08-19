@@ -1,4 +1,5 @@
 {% load static %}
+{% load db_math %}
 <section class="trends">
     <h2>Trending courses</h2>
     <div class="course-categories">
@@ -13,158 +14,27 @@
     </div>
     <div class="courses">
         <div class="course-card smooth-scale">
-            <div class="card-preview">
-                <img src="{% static 'global/img/default_photo_bg.png' %}"
-                     alt="">
-                <p class="button">UI/UX design</p>
-            </div>
-            <div class="card-title">
-                <p class="course-name">Course namedsadasdasdasdsadsadas
-                    dsadsadsa</p>
-                <p class="course-author">A.S. Pushkin</p>
-                <div class="stars">
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <span>(2000)</span>
+            {% for course in trending_courses %}
+                <div class="card-preview">
+                    <img src="{{ course.preview_url.url  }}"
+                         alt="">
+                    <p class="button">{{ course.category.name }}</p>
                 </div>
-                <span class="price-inactive">$500</span>
-                <span class="course-price">$500</span>
-            </div>
-        </div>
-        <div class="course-card smooth-scale">
-            <div class="card-preview">
-                <img src="{% static 'global/img/default_photo_bg.png' %}"
-                     alt="">
-                <p class="button">UI/UX design</p>
-            </div>
-            <div class="card-title">
-                <p class="course-name">Course namedsadasdasdasdsadsadas
-                    dsadsadsa</p>
-                <p class="course-author">A.S. Pushkin</p>
-                <div class="stars">
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <span>(2000)</span>
+                <div class="card-title">
+                    <p class="course-name">{{ course.name }}</p>
+                    <p class="course-author">{{ course.author.full_name }}</p>
+                    <div class="stars">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <span>(2000)</span>
+                    </div>
+                    <span class="price-inactive">${{ course.price }}</span>
+                    <span class="course-price">${{ course.price|calc_disc:course.discount }}</span>
                 </div>
-                <span class="price-inactive">$500</span>
-                <span class="course-price">$500</span>
-            </div>
-        </div>
-        <div class="course-card smooth-scale">
-            <div class="card-preview">
-                <img src="{% static 'global/img/default_photo_bg.png' %}"
-                     alt="">
-                <p class="button">UI/UX design</p>
-            </div>
-            <div class="card-title">
-                <p class="course-name">Course namedsadasdasdasdsadsadas
-                    dsadsadsa</p>
-                <p class="course-author">A.S. Pushkin</p>
-                <div class="stars">
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <span>(2000)</span>
-                </div>
-                <span class="price-inactive">$500</span>
-                <span class="course-price">$500</span>
-            </div>
-        </div>
-        <div class="course-card smooth-scale">
-            <div class="card-preview">
-                <img src="{% static 'global/img/default_photo_bg.png' %}"
-                     alt="">
-                <p class="button">UI/UX design</p>
-            </div>
-            <div class="card-title">
-                <p class="course-name">Course namedsadasdasdasdsadsadas
-                    dsadsadsa</p>
-                <p class="course-author">A.S. Pushkin</p>
-                <div class="stars">
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <span>(2000)</span>
-                </div>
-                <span class="price-inactive">$500</span>
-                <span class="course-price">$500</span>
-            </div>
-        </div>
-        <div class="course-card smooth-scale">
-            <div class="card-preview">
-                <img src="{% static 'global/img/default_photo_bg.png' %}"
-                     alt="">
-                <p class="button">UI/UX design</p>
-            </div>
-            <div class="card-title">
-                <p class="course-name">Course namedsadasdasdasdsadsadas
-                    dsadsadsa</p>
-                <p class="course-author">A.S. Pushkin</p>
-                <div class="stars">
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <span>(2000)</span>
-                </div>
-                <span class="price-inactive">$500</span>
-                <span class="course-price">$500</span>
-            </div>
-        </div>
-        <div class="course-card smooth-scale">
-            <div class="card-preview">
-                <img src="{% static 'global/img/default_photo_bg.png' %}"
-                     alt="">
-                <p class="button">UI/UX design</p>
-            </div>
-            <div class="card-title">
-                <p class="course-name">Course namedsadasdasdasdsadsadas
-                    dsadsadsa</p>
-                <p class="course-author">A.S. Pushkin</p>
-                <div class="stars">
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <span>(2000)</span>
-                </div>
-                <span class="price-inactive">$500</span>
-                <span class="course-price">$500</span>
-            </div>
-        </div>
-        <div class="course-card smooth-scale">
-            <div class="card-preview">
-                <img src="{% static 'global/img/default_photo_bg.png' %}"
-                     alt="">
-                <p class="button">UI/UX design</p>
-            </div>
-            <div class="card-title">
-                <p class="course-name">Course namedsadasdasdasdsadsadas
-                    dsadsadsa</p>
-                <p class="course-author">A.S. Pushkin</p>
-                <div class="stars">
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <span>(2000)</span>
-                </div>
-                <span class="price-inactive">$500</span>
-                <span class="course-price">$500</span>
-            </div>
+            {% endfor %}
         </div>
     </div>
     <p class="category-btn-active more-courses">More Courses</p>
